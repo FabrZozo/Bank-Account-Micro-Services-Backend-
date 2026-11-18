@@ -1,0 +1,66 @@
+@if (customerDto) {
+  <div class="container py-4">
+    <div class="card shadow-sm mx-auto" style="max-width: 500px">
+      <div class="card-body p-4">
+        <h2 class="h4 mb-4">
+          <i class="bi bi-person-gear me-2"></i>
+          Update Customers
+        </h2>
+
+        <form (ngSubmit)="saveCustomer()" #customerForm="ngForm">
+          <div class="mb-3">
+            <label for="firstname" class="form-label">
+              Firstname
+            </label>
+            <input
+              type="text"
+              id="firstname"
+              name="firstname"
+              class="form-control"
+              [(ngModel)]="customerDto.firstname"
+              required
+            />
+          </div>
+
+          <div class="mb-3">
+            <label for="lastname" class="form-label">
+              Lastname
+            </label>
+            <input
+              type="text"
+              id="lastname"
+              name="lastname"
+              class="form-control"
+              [(ngModel)]="customerDto.lastname"
+              required
+            />
+          </div>
+
+          <div class="mb-4">
+            <label for="email" class="form-label">
+              E-mail
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-control"
+              [(ngModel)]="customerDto.email"
+              required
+              email
+            />
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn-primary w-100"
+            [disabled]="customerForm.invalid"
+          >
+            <i class="bi bi-floppy me-2"></i>
+            save
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+}

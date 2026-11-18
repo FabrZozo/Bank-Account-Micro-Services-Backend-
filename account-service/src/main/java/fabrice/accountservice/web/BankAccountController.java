@@ -3,6 +3,7 @@ package fabrice.accountservice.web;
 import fabrice.accountservice.accountServices.BankAccountService;
 import fabrice.accountservice.dtos.BankAccountDetailsDto;
 import fabrice.accountservice.dtos.BankaccountDto;
+import fabrice.accountservice.entities.Bankaccount;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +20,7 @@ public class BankAccountController {
         this.bankAccountService = bankAccountService;
     }
     @GetMapping("/getListBankAccount")
-    public ResponseEntity<List<BankaccountDto>> getListBankAccount() {
+    public ResponseEntity<List<Bankaccount>> getListBankAccount() {
         return new ResponseEntity<>(bankAccountService.getListBankAccount(), HttpStatus.OK);
     }
     @GetMapping("/getBankAccountById/{accountId}")

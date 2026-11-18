@@ -32,8 +32,8 @@ public class BankAccountService {
         this.customerclient= customerclient;
     }
 
-    public List<BankaccountDto> getListBankAccount() {
-        return bankAccountRepository.findAll().stream().map(BankAccountMapper::toBankaccountDto).toList();
+    public List<Bankaccount> getListBankAccount() {
+        return bankAccountRepository.findAll().stream().toList();
     }
 
     public BankaccountDto getBankAccountById(String accountId) throws AccountException {

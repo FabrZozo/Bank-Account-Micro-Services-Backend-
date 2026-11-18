@@ -16,26 +16,5 @@ public class CustomerService2Application {
     public static void main(String[] args) {
         SpringApplication.run(CustomerService2Application.class, args);
     }
-    @Bean
-    CommandLineRunner commandLineRunner(CustomerRepository customerRepository, CustomerService customerService) {
-        return args -> {
 
-            customerRepository.deleteAll();
-
-            System.out.println(
-                    "Nombre de clients après suppression : " + customerRepository.count()
-            );
-
-            CustomerDto customerDto1 = CustomerDto.builder().firstName("fabrice").lastName("nzolang").
-                    email("fabricenzolang@yahoo.com").build();
-            CustomerDto customerDto2 = CustomerDto.builder().firstName("cedric").lastName("nzolang").
-                    email("cedriczolang@yahoo.com").build();
-
-            customerService.addCustomer(customerDto1);
-            customerService.addCustomer(customerDto2);
-
-            customerRepository.findAll().forEach(e-> System.out.println(e.getId()));
-
-        };
-    }
 }

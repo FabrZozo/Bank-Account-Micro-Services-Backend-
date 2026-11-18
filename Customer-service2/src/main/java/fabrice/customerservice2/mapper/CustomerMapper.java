@@ -7,10 +7,10 @@ public class CustomerMapper {
 
 
     public static CustomerDto toCustomerDto(Customer customer) {
-        return CustomerDto.builder().firstName(customer.getFirstname()).lastName(customer.getLastname()).email(customer.getEmail()).build();
+        return CustomerDto.builder().firstname(customer.getFirstname()).lastname(customer.getLastname()).email(customer.getEmail()).build();
     }
 
     public static Customer toCustomer(CustomerDto customerDto) {
-        return Customer.builder().firstname(customerDto.getFirstName()).lastname(customerDto.getLastName()).email(customerDto.getEmail()).build();
+        return Customer.builder().firstname(customerDto.getFirstname()).lastname(customerDto.getLastname()).email(customerDto.getEmail()).build();
     }
 }

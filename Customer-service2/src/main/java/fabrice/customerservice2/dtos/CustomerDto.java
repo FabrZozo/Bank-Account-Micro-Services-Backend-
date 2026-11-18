@@ -10,8 +10,8 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CustomerDto {
-    private String firstName;
-    private String lastName;
+    private String firstname;
+    private String lastname;
     private String email;
 
 }
