@@ -34,12 +34,12 @@ public class CustomerService {
        return CustomerMapper.toCustomerDto(customerRepository.findById(id).get());
    }
    public List<CustomerDto> getCustomerByName(String name) throws CustomerException {
-       return  getAllCustomers().stream().map(CustomerMapper::toCustomerDto).filter(e->e.getFirstName().equals(name)|| e.getLastName().equals(name)).collect(Collectors.toList());
+       return  getAllCustomers().stream().map(CustomerMapper::toCustomerDto).filter(e->e.getFirstname().equals(name)|| e.getLastname().equals(name)).collect(Collectors.toList());
    }
 
    public void addCustomer(CustomerDto customerDto) throws CustomerException {
        if(customerDto==null) throw new CustomerException("Customer DTO can't be null");
-       if(getAllCustomers().stream().map(CustomerMapper::toCustomerDto).anyMatch(e->e.getFirstName().equals(customerDto.getFirstName()) && e.getLastName().equals(customerDto.getLastName()))) {
+       if(getAllCustomers().stream().map(CustomerMapper::toCustomerDto).anyMatch(e->e.getFirstname().equals(customerDto.getFirstname()) && e.getLastname().equals(customerDto.getLastname()))) {
            throw new CustomerException("Customer already exists");
        }
        customerRepository.save(CustomerMapper.toCustomer(customerDto));
@@ -58,8 +58,8 @@ public class CustomerService {
            throw new CustomerException("Customer DTO can't be null");
        }
        Customer customer = customerRepository.findById(id).orElseThrow(() -> new CustomerException("Customer with id " + id + " not found"));
-       customer.setFirstname(customerDto.getFirstName());
-       customer.setLastname(customerDto.getLastName());
+       customer.setFirstname(customerDto.getFirstname());
+       customer.setLastname(customerDto.getLastname());
        customer.setEmail(customerDto.getEmail());
 
        customerRepository.save(customer);

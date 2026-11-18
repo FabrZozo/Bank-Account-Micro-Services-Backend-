@@ -1,0 +1,36 @@
+<div class="p-3">
+  <div class="card">
+    <div class="card-body">
+      @if(customers){
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Firstname</th>
+              <th>Lastname</th>
+              <th>E-mail</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (c of customers; track c.id ){
+              <tr>
+                <td>{{c.id}}</td>
+                <td>{{c.firstname}}</td>
+                <td>{{c.lastname}}</td>
+                <td>{{c.email}}</td>
+                <td>
+                  <a class="btn btn-warning me-2"  [routerLink]="['/customers', c.id, 'edit']">Update</a>
+                  <button class="btn btn-danger" (click)="deleteCustomer(c.id)">
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      }
+    </div>
+  </div>
+
+</div>
